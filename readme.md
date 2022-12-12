@@ -6,8 +6,10 @@
 
       -  pages pour tous les livres
 
-      -  pages details
-
 # Pour le 09 Janvier
 
+      -   Page details du livre
+
       -  redirection
+
+#
