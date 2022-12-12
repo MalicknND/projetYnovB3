@@ -1,5 +1,7 @@
 # LIBRARY APP
 
+Une application pour les livres
+
 # Pour le 19 décembre
 
       -  register / login
@@ -10,6 +12,10 @@
 
       -   Page details du livre
 
-      -  redirection
+      -   Ajouter à mes favoris
+
+      -   Afficher details utilisateur
+
+      -   redirection
 
 #
