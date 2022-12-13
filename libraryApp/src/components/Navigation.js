@@ -16,8 +16,8 @@ const Navigation = () => {
           component={LoginScreen}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
