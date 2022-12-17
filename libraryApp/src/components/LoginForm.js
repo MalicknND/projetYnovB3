@@ -25,7 +25,7 @@ const LoginForm = () => {
           secureTextEntry={true}
         />
       </TextInputContainer>
-      <LoginButton onPress={() => navigation.navigate('Home')}>
+      <LoginButton onPress={() => navigation.navigate('Book')}>
         <TextStyled>Login</TextStyled>
       </LoginButton>
 
