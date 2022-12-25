@@ -1,8 +1,8 @@
 import React from 'react';
-import Navigation from './src/navigations/Navigation';
+import Providers from './src/navigations';
 
 const App = () => {
-  return <Navigation />;
+  return <Providers />;
 };
 
 export default App;
