@@ -43,7 +43,7 @@ const AuthStack = () => {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName={routeName}>
         <Stack.Screen
           name="Onboarding"
