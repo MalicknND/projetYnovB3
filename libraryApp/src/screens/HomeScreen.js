@@ -5,6 +5,8 @@ import {ScrollView} from 'react-native';
 import axios from 'axios';
 import Book from '../components/Book';
 import styled from 'styled-components';
+import Search from '../components/Search';
+import BottomNav from '../components/BottomNav';
 
 const HomeScreen = ({navigation}) => {
   const [book, setBook] = React.useState([]);
@@ -24,10 +26,13 @@ const HomeScreen = ({navigation}) => {
   }, []);
   return (
     <ScrollView>
+      <Search />
+      <BottomNav />
       <ViewStyled>
         {book.map((item, index) => {
           return (
             <TouchableOpacity
+              //aller a lz page détails et afficher les details
               onPress={() => navigation.navigate('Book', {book: item})}>
               <Book item={item} />
             </TouchableOpacity>
@@ -40,5 +45,6 @@ const HomeScreen = ({navigation}) => {
 
 const ViewStyled = styled.View`
   margin: 0px 20px;
+  padding-top: 20px;
 `;
 export default HomeScreen;

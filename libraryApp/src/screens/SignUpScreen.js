@@ -5,33 +5,36 @@ import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 
 import auth from '@react-native-firebase/auth';
+import {AuthContext} from '../navigations/AuthProvider';
 
 const SignUpScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-  const Register = () => {
-    auth()
-      .createUserWithEmailAndPassword(
-        'jane.doe@example.com',
-        'SuperSecretPassword!',
-      )
-      .then(() => {
-        console.log('User account created & signed in!');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
+  const {register} = useContext(AuthContext);
 
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
+  // const Register = () => {
+  //   auth()
+  //     .createUserWithEmailAndPassword(
+  //       'jane.doe@example.co',
+  //       'SuperSecretPassword!',
+  //     )
+  //     .then(() => {
+  //       console.log('User account created & signed in!');
+  //     })
+  //     .catch(error => {
+  //       if (error.code === 'auth/email-already-in-use') {
+  //         console.log('That email address is already in use!');
+  //       }
 
-        console.error(error);
-      });
-  };
+  //       if (error.code === 'auth/invalid-email') {
+  //         console.log('That email address is invalid!');
+  //       }
+
+  //       console.error(error);
+  //     });
+  // };
 
   return (
     <View style={styles.container}>
@@ -62,7 +65,10 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry={true}
         autoCorrect={false}
       />
-      <FormButton buttonTitle="S'inscrire" onPress={() => Register()} />
+      <FormButton
+        buttonTitle="S'inscrire"
+        onPress={() => register(email, password)}
+      />
       <View style={styles.textPrivate}>
         <Text style={styles.color_textPrivate}>
           By registering, you confirm that you accept our{' '}

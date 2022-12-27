@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
+import {AuthContext} from '../navigations/AuthProvider';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const {login} = useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo.png')} style={styles.logo} />
@@ -29,7 +32,7 @@ const LoginScreen = ({navigation}) => {
       />
       <FormButton
         buttonTitle="Se connecter"
-        onPress={() => alert('Se connecter')}
+        onPress={() => login(email, password)}
       />
       <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
         <Text style={styles.navButtonText}>Mot de passe oublié?</Text>
