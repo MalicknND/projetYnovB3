@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {Image} from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 
 const OnBoardingScreen = ({navigation}) => {
@@ -24,13 +24,5 @@ const OnBoardingScreen = ({navigation}) => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default OnBoardingScreen;

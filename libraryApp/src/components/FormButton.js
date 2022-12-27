@@ -1,32 +1,30 @@
-import {StyleSheet, Text, TouchableOpacity, Dimensions} from 'react-native';
 import React from 'react';
-const windowHeight = Dimensions.get('window').height;
+import styled from 'styled-components';
 
 const FormButton = ({buttonTitle, ...rest}) => {
   return (
-    <TouchableOpacity style={styles.buttonContainer} {...rest}>
-      <Text style={styles.buttonText}>{buttonTitle}</Text>
-    </TouchableOpacity>
+    <TouchableStyled {...rest}>
+      <TitleStyled>{buttonTitle}</TitleStyled>
+    </TouchableStyled>
   );
 };
 
 export default FormButton;
 
-const styles = StyleSheet.create({
-  buttonContainer: {
-    marginTop: 10,
-    width: '100%',
-    height: windowHeight / 15,
-    backgroundColor: '#2e64e5',
-    padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 3,
-  },
-  buttonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    fontFamily: 'Lato-Regular',
-  },
-});
+const TouchableStyled = styled.TouchableOpacity`
+  margin-top: 10px;
+  width: 100%;
+  height: 45px;
+  background-color: #2e64e5;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+`;
+
+const TitleStyled = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: Lato-Regular;
+`;

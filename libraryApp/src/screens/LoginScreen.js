@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 import {AuthContext} from '../navigations/AuthProvider';
+import styled from 'styled-components';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
@@ -11,8 +11,8 @@ const LoginScreen = ({navigation}) => {
 
   const {login} = useContext(AuthContext);
   return (
-    <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
+    <ViewStyled>
+      <ImageStyled source={require('../assets/logo.png')} />
       <FormInput
         labelValue={email}
         onChangeText={userEmail => setEmail(userEmail)}
@@ -34,9 +34,9 @@ const LoginScreen = ({navigation}) => {
         buttonTitle="Se connecter"
         onPress={() => login(email, password)}
       />
-      <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
-        <Text style={styles.navButtonText}>Mot de passe oublié?</Text>
-      </TouchableOpacity>
+      <TouchableStyled onPress={() => {}}>
+        <TextStyled>Mot de passe oublié?</TextStyled>
+      </TouchableStyled>
       <SocialButton
         buttonTitle="Se connecter avec facebook"
         btnType="facebook"
@@ -51,47 +51,33 @@ const LoginScreen = ({navigation}) => {
         backgroundColor="#f5e7ea"
         onPress={() => {}}
       />
-      <TouchableOpacity
-        style={styles.forgotButton}
-        onPress={() => navigation.navigate('Signup')}>
-        <Text style={styles.navButtonText}>
-          Vous n'avez pas de compte?Inscrivez-vous.
-        </Text>
-      </TouchableOpacity>
-    </View>
+      <TouchableStyled onPress={() => navigation.navigate('Signup')}>
+        <TextStyled>Pas de compte ? Inscrivez-vous.</TextStyled>
+      </TouchableStyled>
+    </ViewStyled>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    paddingTop: 50,
-  },
-  logo: {
-    height: 150,
-    width: 150,
-    resizeMode: 'cover',
-  },
-  text: {
-    fontFamily: 'Kufam-SemiBoldItalic',
-    fontSize: 28,
-    marginBottom: 10,
-    color: '#051d5f',
-  },
-  navButton: {
-    marginTop: 15,
-  },
-  forgotButton: {
-    marginVertical: 35,
-  },
-  navButtonText: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: '#2e64e5',
-    fontFamily: 'Lato-Regular',
-  },
-});
+const ViewStyled = styled.View`
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 50px;
+`;
+
+const TouchableStyled = styled.TouchableOpacity`
+  margin: 35px;
+  text-align: center;
+`;
+const TextStyled = styled.Text`
+  font-size: 18px;
+  font-weight: 500;
+  color: #2e64e5;
+  font-family: Lato-Regular;
+`;
+const ImageStyled = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
 
 export default LoginScreen;
