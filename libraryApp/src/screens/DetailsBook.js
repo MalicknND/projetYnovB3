@@ -24,14 +24,8 @@ const ViewStyled = styled.View`
   flex-wrap: wrap;
 `;
 const TitleStyled = styled.View`
-  /* overflow: hidden; */
-
   padding: 10px;
 `;
-// const TextStyled = styled.Text`
-//   font-size: 16px;
-//   font-weight: bold;
-// `;
 const ImageStyled = styled.Image`
   width: 250px;
   height: 300px;
