@@ -42,9 +42,12 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry={true}
         autoCorrect={false}
       />
+
       <FormButton
         buttonTitle="S'inscrire"
-        onPress={() => register(email, password)}
+        onPress={() => {
+          register(email, password) && navigation.navigate('Login');
+        }}
       />
       <PrivateStyled>
         <TextPrivateStyled>

@@ -8,28 +8,52 @@ import styled from 'styled-components';
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [checkValidEmail, setCheckValidEmail] = useState(false);
+  const [seePassword, setSeePassword] = useState(true);
 
   const {login} = useContext(AuthContext);
+
+  const handleCheckEmail = text => {
+    let re = /\S+@\S+\.\S+/;
+    let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+    setEmail(text);
+    if (re.test(text) || regex.test(text)) {
+      setCheckValidEmail(false);
+    } else {
+      setCheckValidEmail(true);
+    }
+  };
   return (
     <ViewStyled>
       <ImageStyled source={require('../assets/logo.png')} />
       <FormInput
         labelValue={email}
-        onChangeText={userEmail => setEmail(userEmail)}
+        onChangeText={text => handleCheckEmail(text)}
         placeholder="Email"
         iconType="user"
         keyBoardType="email-address"
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <FormInput
-        labelValue={password}
-        onChangeText={userPassword => setPassword(userPassword)}
-        placeholder="Mot de passe"
-        iconType="lock"
-        secureTextEntry={true}
-        autoCorrect={false}
-      />
+      {checkValidEmail ? (
+        <FailedStyled>Format email incorrect</FailedStyled>
+      ) : (
+        <FailedStyled> </FailedStyled>
+      )}
+      <>
+        <FormInput
+          labelValue={password}
+          onChangeText={userPassword => setPassword(userPassword)}
+          placeholder="Mot de passe"
+          iconType="lock"
+          secureTextEntry={true}
+          autoCorrect={false}
+        />
+        {/* <IconPassStyled>
+          <IconStyled />
+        </IconPassStyled> */}
+      </>
       <FormButton
         buttonTitle="Se connecter"
         onPress={() => login(email, password)}
@@ -69,15 +93,29 @@ const TouchableStyled = styled.TouchableOpacity`
   margin: 35px;
   text-align: center;
 `;
+const IconPassStyled = styled.TouchableOpacity`
+  margin: 35px;
+  text-align: center;
+`;
 const TextStyled = styled.Text`
   font-size: 18px;
   font-weight: 500;
   color: #2e64e5;
   font-family: Lato-Regular;
 `;
+const FailedStyled = styled.Text`
+  align-self: flex-end;
+  color: red;
+  padding: 0px;
+  margin: 0px;
+`;
 const ImageStyled = styled.Image`
   width: 150px;
   height: 150px;
 `;
 
+const Styled = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
 export default LoginScreen;
