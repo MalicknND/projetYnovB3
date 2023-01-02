@@ -1,10 +1,8 @@
 import {
   ActivityIndicator,
   FlatList,
-  SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  View,
 } from 'react-native';
 import React, {useEffect} from 'react';
 

@@ -4,7 +4,7 @@ Une application pour les livres
 
 # Pour le 19 décembre
 
-      -  register / login
+      -  register / login avec firebase
 
       -  pages pour tous les livres
 
