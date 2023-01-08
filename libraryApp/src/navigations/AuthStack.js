@@ -11,7 +11,6 @@ import OnBoardingScreen from '../screens/OnBoardingScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { GoogleSignin } from '@react-native-community/google-signin';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,7 +65,7 @@ const AuthStack = () => {
               elevation: 0,
             },
             headerLeft: () => (
-              <View style={{marginLeft: 10}}>
+              <View>
                 <FontAwesome.Button
                   name="long-arrow-left"
                   size={25}
