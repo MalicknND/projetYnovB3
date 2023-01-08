@@ -27,10 +27,6 @@ const AuthStack = () => {
         setIsFirstLaunch(false);
       }
     }); // Add some error handling, also you can simply do setIsFirstLaunch(null)
-
-    // GoogleSignin.configure({
-    //   webClientId: 'YOUR_APP_WEB_CLIENT_ID',
-    // });
   }, []);
 
   if (isFirstLaunch === null) {
