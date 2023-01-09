@@ -46,14 +46,14 @@ const SignUpScreen = ({navigation}) => {
       <FormButton
         buttonTitle="S'inscrire"
         onPress={() => {
-          register(email, password) && navigation.navigate('Login');
+          register(email, password);
         }}
       />
       <PrivateStyled>
         <TextPrivateStyled>
           By registering, you confirm that you accept our{' '}
         </TextPrivateStyled>
-        <TouchableStyled onPress={() => alert('Terms Clicked!')}>
+        <TouchableStyled>
           <TextCoPrivateStyled>Terms of service</TextCoPrivateStyled>
         </TouchableStyled>
         <TextPrivateStyled> and </TextPrivateStyled>

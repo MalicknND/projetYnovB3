@@ -11,6 +11,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Search from '../components/Search';
 import BottomNav from '../components/BottomNav';
+import Logout from '../components/Logout';
 
 const HomeScreen = ({navigation}) => {
   const [book, setbook] = React.useState([]);
@@ -29,6 +30,7 @@ const HomeScreen = ({navigation}) => {
     <ScrollView>
       <Search />
       <BottomNav />
+      <Logout />
       {isLoading ? (
         <ActivityIndicator />
       ) : (

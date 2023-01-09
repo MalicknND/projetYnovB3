@@ -4,7 +4,7 @@ Une application pour les livres
 
 # Pour le 19 décembre
 
-      -  register / login avec firebase
+      -  register / login
 
       -  pages pour tous les livres
 
@@ -13,8 +13,6 @@ Une application pour les livres
       -   Page details du livre
 
       -   Ajouter à mes favoris
-
-      -   Afficher details utilisateur
 
       -   redirection
 

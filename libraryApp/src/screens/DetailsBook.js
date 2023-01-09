@@ -2,7 +2,6 @@ import {Button, Linking, Text} from 'react-native';
 import React from 'react';
 import styled from 'styled-components';
 
-//
 const DetailsBook = ({route, navigation}) => {
   const {book} = route.params;
   return (
