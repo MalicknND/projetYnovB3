@@ -16,4 +16,6 @@ Une application pour les livres
 
       -   redirection
 
+      -   infos utilisateur
+
 #
